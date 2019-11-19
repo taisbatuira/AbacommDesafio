@@ -2,6 +2,7 @@ package abacomm.com.br.desafio;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.widget.Button;
@@ -16,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private String senha;
     private AppCompatEditText campoUsuario;
     private AppCompatEditText campoSenha;
+    private GerenciadorDePermissao gerenciador;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,17 +33,46 @@ public class MainActivity extends AppCompatActivity {
         TextView esqueceuSenha = findViewById(R.id.login_esqueceu_a_senha);
         TextView registrar = findViewById(R.id.login_registrar);
 
-        botaoLogin.setOnClickListener(view -> {
-                Intent intent = new Intent(MainActivity.this, EnqueteActivity.class);
-                MainActivity.this.startActivity(intent);
-        });
-
         esqueceuSenha.setOnClickListener(view -> {
-            Toast.makeText(MainActivity.this, "Senha: 1234", Toast.LENGTH_SHORT).show();
+            mostraToast("Senha 1234");
         });
 
         registrar.setOnClickListener(view -> {
-            Toast.makeText(MainActivity.this, "Acesse nosso site!", Toast.LENGTH_SHORT).show();
+            mostraToast("Acesse nosso site!!!");
         });
+
+        habilitaBotaoLogin();
+    }
+
+    private void habilitaBotaoLogin() {
+        gerenciador = new GerenciadorDePermissao(this);
+
+        botaoLogin.setOnClickListener(view -> {
+            if (gerenciador.temPermissao()) {
+                abreEnquete();
+            } else {
+                gerenciador.solicitaPermissao();
+            }
+        });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        boolean temPermissao = gerenciador.estaAutorizado(requestCode, grantResults);
+
+        if (temPermissao) {
+            abreEnquete();
+        } else {
+            mostraToast("Permissão de GPS necessária.");
+        }
+    }
+
+    private void abreEnquete() {
+        Intent intent = new Intent(MainActivity.this, EnqueteActivity.class);
+        MainActivity.this.startActivity(intent);
+    }
+
+    private void mostraToast(String mensagem) {
+        Toast.makeText(MainActivity.this, mensagem, Toast.LENGTH_SHORT).show();
     }
 }
