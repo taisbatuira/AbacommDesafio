@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AbacommDesafio</string>
+
+    <string name="activity_login_esqueceu_a_senha">Esqueceu a senha?</string>
+    <string name="activity_login_nao_tem_cadastro">Ainda não tem cadastro?</string>
+    <string name="activity_login_registrar">Registre-se</string>
+    <string name="activity_login_button">Entrar</string>
+
+    <string name="activity_login_usuario_hint">E-mail</string>
+    <string name="activity_login_password_hint">E-mail</string>
+
+</resources>

@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="55dp"
+    android:paddingRight="55dp">
+
+    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="164dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="60dp"
+        android:src="@mipmap/logo_pwc" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="10dp">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/login_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/activity_login_usuario_hint"
+            android:inputType="textEmailAddress"
+            android:textColor="#000000"/>
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/login_senha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5sp"
+            android:hint="@string/activity_login_password_hint"
+            android:inputType="textPassword"
+            android:textColor="@color/login_hint" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/activity_login_button"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/tint_botao_entrar" />
+
+        <TextView
+            android:id="@+id/login_esqueceu_a_senha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/activity_login_esqueceu_a_senha"
+            android:textColor="@color/login_hint"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/activity_login_nao_tem_cadastro"
+            android:textColor="@color/login_hint"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/login_registrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:text="@string/activity_login_registrar"
+            android:textColor="@color/tint_botao_entrar"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+</LinearLayout>
