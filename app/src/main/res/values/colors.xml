@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#dc402d</color>
+    <color name="colorPrimaryDark">#79180D</color>
     <color name="colorAccent">#D81B60</color>
     <color name="default_background">#eef1f2</color>
+
+
+    <color name="gradiente_rosa">#aad74a6c</color>
+    <color name="gradiente_vermelho">#aad63b32</color>
 
 
     <color name="white">#ffffff</color>
     <color name="login_hint">#666666</color>
     <color name="tint_botao_entrar">#dc402d</color>
+    <color name="corPadrãoComTransparencia">#66dc402d</color>
+    <color name="corPadrao">#dc402d</color>
     <color name="pumpkin_orange">#ff8000</color>
 
 </resources>
