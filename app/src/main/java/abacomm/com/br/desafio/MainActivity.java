@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         habilitaBotaoLogin();
+
     }
 
     private void habilitaBotaoLogin() {
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         botaoLogin.setOnClickListener(view -> {
             if (gerenciador.temPermissao()) {
-                abreEnquete();
+                new Localizador(this).configuraServico();
             } else {
                 gerenciador.solicitaPermissao();
             }
@@ -61,14 +62,15 @@ public class MainActivity extends AppCompatActivity {
         boolean temPermissao = gerenciador.estaAutorizado(requestCode, grantResults);
 
         if (temPermissao) {
-            abreEnquete();
+            new Localizador(this).configuraServico();
         } else {
             mostraToast("Permissão de GPS necessária.");
         }
     }
 
-    private void abreEnquete() {
+    public void abreEnquete(String cidade) {
         Intent intent = new Intent(MainActivity.this, EnqueteActivity.class);
+        intent.putExtra(EnqueteActivity.NOME_DA_CIDADE, cidade);
         MainActivity.this.startActivity(intent);
     }
 
