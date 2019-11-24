@@ -6,8 +6,8 @@
     <color name="default_background">#eef1f2</color>
 
 
-    <color name="gradiente_rosa">#aad74a6c</color>
-    <color name="gradiente_vermelho">#aad63b32</color>
+    <color name="gradiente_rosa">#bbd74a6c</color>
+    <color name="gradiente_vermelho">#bbd63b32</color>
 
 
     <color name="white">#ffffff</color>
@@ -16,5 +16,6 @@
     <color name="corPadrãoComTransparencia">#66dc402d</color>
     <color name="corPadrao">#dc402d</color>
     <color name="pumpkin_orange">#ff8000</color>
+    <color name="transparente">#00000000</color>
 
 </resources>
