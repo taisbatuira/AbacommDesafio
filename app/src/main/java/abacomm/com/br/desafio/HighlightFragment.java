@@ -8,36 +8,25 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class HighlightFragment extends Fragment {
 
-        private static final String TITULO = "TITULO";
+        private static final String PERGUNTA = "PERGUNTA";
         private static final String RESPOSTAS = "RESPOSTAS";
 
-        public static HighlightFragment comPerguntaERespostas(String pergunta, String[] respostas) {
+        public static HighlightFragment comPerguntaERespostas(String pergunta, ArrayList<String> respostas) {
             Bundle bundle = new Bundle();
-            bundle.putString(TITULO, pergunta);
-            bundle.putStringArray(RESPOSTAS, respostas);
-
+            bundle.putString(PERGUNTA, pergunta);
+            bundle.putStringArrayList(RESPOSTAS, respostas);
             HighlightFragment fragment = new HighlightFragment();
             fragment.setArguments(bundle);
 
             return fragment;
-        }
-
-        @Override
-        public void onCreate(@Nullable Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            //Bus.register(this);
-        }
-
-        @Override
-        public void onDetach() {
-            super.onDetach();
-            //Bus.unregister(this);
         }
 
         @Nullable
@@ -50,11 +39,11 @@ public class HighlightFragment extends Fragment {
 
             Bundle bundle = getArguments();
 
-            titulo.setText(bundle.getString(TITULO));
-            String[] respostas = bundle.getStringArray(RESPOSTAS);
+            titulo.setText(bundle.getString(PERGUNTA));
+            ArrayList<String> respostas = bundle.getStringArrayList(RESPOSTAS);
 
-            String[] dados = respostas;
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, dados);
+            ArrayList<String> dados = respostas;
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, dados);
             lista_de_respostas.setAdapter(adapter);
 
             return layout;

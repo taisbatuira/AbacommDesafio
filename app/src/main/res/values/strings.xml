@@ -18,4 +18,9 @@
     <string name="resposta2_1">Não sei</string>
     <string name="resposta2_2">Não tenho money</string>
     <string name="resposta2_3">Talvez</string>
+
+    <string name="pergunta3">Você recomendaria a cidade %s?</string>
+    <string name="resposta3_1">putz</string>
+    <string name="resposta3_2">nem a pau</string>
+    <string name="resposta3_3">Talvez</string>
 </resources>

@@ -17,7 +17,6 @@ public class EnqueteActivity extends AppCompatActivity {
     public static final String NOME_DA_CIDADE = "cidade";
 
     private int paginaAtual = 0;
-    private TextView campo_cidade;
     private String cidade;
 
     @Override
@@ -27,20 +26,23 @@ public class EnqueteActivity extends AppCompatActivity {
 
         cidade = getIntent().getStringExtra(NOME_DA_CIDADE);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        TextView mTitle = (TextView) toolbar.findViewById(R.id.toolbar_titulo);
-        mTitle.setText(cidade);
+        getToolbar();
+        getPagerRespostas();
+    }
+
+    private void getToolbar() {
+        Toolbar myToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
+        TextView mTitle =  myToolbar.findViewById(R.id.toolbar_titulo);
+        mTitle.setText("Cidade: " + cidade);
         ActionBar actionBar = Objects.requireNonNull(getSupportActionBar());
+        actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setDisplayHomeAsUpEnabled(true);
+    }
 
-        campo_cidade = findViewById(R.id.bla);
-        //campo_cidade.setText(cidade);
-
+    private void getPagerRespostas() {
         androidx.viewpager.widget.ViewPager pager = findViewById(R.id.welcome_container);
-        EnqueteViewPager adapter = new EnqueteViewPager(this);
-        pager.setOffscreenPageLimit(2);
+        EnqueteViewPager adapter = new EnqueteViewPager(this, cidade);
         pager.setAdapter(adapter);
 
         TabLayout tabLayout = findViewById(R.id.welcome_dots);
