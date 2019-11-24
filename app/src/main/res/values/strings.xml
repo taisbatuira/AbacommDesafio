@@ -8,5 +8,14 @@
 
     <string name="activity_login_usuario_hint">E-mail</string>
     <string name="activity_login_password_hint">E-mail</string>
+    
+    <string name="pergunta1">Você gostou da sua viagem à %s?</string>
+    <string name="resposta1_1">Mais ou menos</string>
+    <string name="resposta1_2">Pois é</string>
+    <string name="resposta1_3">Talvez</string>
 
+    <string name="pergunta2">Você voltaria à %s?</string>
+    <string name="resposta2_1">Não sei</string>
+    <string name="resposta2_2">Não tenho money</string>
+    <string name="resposta2_3">Talvez</string>
 </resources>

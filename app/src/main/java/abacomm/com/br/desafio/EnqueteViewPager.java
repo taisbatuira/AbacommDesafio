@@ -17,8 +17,22 @@ public class EnqueteViewPager extends FragmentStatePagerAdapter {
         public EnqueteViewPager(AppCompatActivity activity) {
             super(activity.getSupportFragmentManager());
 
-            this.fragments.add(HighlightFragment.comTituloESubtitulo("funcionou esse 1"));
-            this.fragments.add(HighlightFragment.comTituloESubtitulo("funcionou esse2 outro"));
+            String pergunta1 = String.format(activity.getString(R.string.pergunta1), "São Paulo");
+            String resposta1 = activity.getString(R.string.resposta1_1);
+            String resposta2 = activity.getString(R.string.resposta1_2);
+            String resposta3 = activity.getString(R.string.resposta1_3);
+            this.fragments.add(
+                    HighlightFragment.comPerguntaERespostas(pergunta1,
+                                                            new String[] {resposta1, resposta2, resposta3}));
+
+            String pergunta2 = String.format(activity.getString(R.string.pergunta2), "São Paulo");
+            String resposta4 = activity.getString(R.string.resposta2_1);
+            String resposta5 = activity.getString(R.string.resposta2_2);
+            String resposta6 = activity.getString(R.string.resposta2_3);
+
+            this.fragments.add(
+                    HighlightFragment.comPerguntaERespostas(pergunta2,
+                                                            new String[] {resposta4,  resposta5, resposta6}));
 //            this.fragments.add(HighlightFragment.comTituloESubtitulo(activity.getString(R.string.fragment_welcome_titulo_2), activity.getString(R.string.fragment_welcome_subtitulo_2)));
 //            this.fragments.add(HighlightFragment.comTituloESubtitulo(activity.getString(R.string.fragment_welcome_titulo_3), activity.getString(R.string.fragment_welcome_subtitulo_3)));
         }
@@ -38,4 +52,5 @@ public class EnqueteViewPager extends FragmentStatePagerAdapter {
         public int getCount() {
             return fragments.size();
         }
+
 }
