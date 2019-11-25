@@ -35,43 +35,26 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="70dp"
+        android:weightSum="1">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.viewpager.widget.ViewPager
-                android:layout_marginTop="30dp"
-                android:id="@+id/welcome_container"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.8"
-                android:layout_margin="40dp"
-                android:backgroundTint="@color/tint_botao_entrar"/>
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/welcome_dots"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="0.2"
-                android:layout_margin="40dp"
-                app:tabBackground="@drawable/dot_selector"
-                app:tabGravity="center"
-                app:tabIndicatorHeight="0dp" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/bla"
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/welcome_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical|center_horizontal"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:textColor="@color/tint_botao_entrar"
-            android:textSize="24sp" />
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:backgroundTint="@color/tint_botao_entrar"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/welcome_dots"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_weight="0.2"
+            app:tabBackground="@drawable/dot_selector"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp" />
 
     </LinearLayout>
 
