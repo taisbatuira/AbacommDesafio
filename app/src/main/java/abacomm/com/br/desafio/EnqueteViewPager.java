@@ -49,4 +49,6 @@ public class EnqueteViewPager extends FragmentStatePagerAdapter {
                     HighlightFragment.comPerguntaERespostas(dados.pergunta(pergunta, cidade),
                                                             dados.respostas(lista)));
         }
+
+
 }

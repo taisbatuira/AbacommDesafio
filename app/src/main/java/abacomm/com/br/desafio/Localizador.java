@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import abacomm.com.br.desafio.activities.MainActivity;
+
 public class Localizador {
 
     private static final int REQUEST_CHECK_SETTINGS = 613;

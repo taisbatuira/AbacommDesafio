@@ -1,4 +1,4 @@
-package abacomm.com.br.desafio;
+package abacomm.com.br.desafio.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import abacomm.com.br.desafio.GerenciadorDePermissao;
+import abacomm.com.br.desafio.Localizador;
+import abacomm.com.br.desafio.R;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;

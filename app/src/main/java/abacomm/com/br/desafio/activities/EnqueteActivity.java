@@ -1,4 +1,4 @@
-package abacomm.com.br.desafio;
+package abacomm.com.br.desafio.activities;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -7,6 +7,8 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.Objects;
 
+import abacomm.com.br.desafio.EnqueteViewPager;
+import abacomm.com.br.desafio.R;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -18,6 +20,7 @@ public class EnqueteActivity extends AppCompatActivity {
 
     private int paginaAtual = 0;
     private String cidade;
+    private ViewPager pager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +44,7 @@ public class EnqueteActivity extends AppCompatActivity {
     }
 
     private void getPagerRespostas() {
-        androidx.viewpager.widget.ViewPager pager = findViewById(R.id.welcome_container);
+        pager = findViewById(R.id.welcome_container);
         EnqueteViewPager adapter = new EnqueteViewPager(this, cidade);
         pager.setAdapter(adapter);
 
@@ -76,4 +79,5 @@ public class EnqueteActivity extends AppCompatActivity {
         super.onBackPressed();
         overridePendingTransition(0, 0);
     }
+
 }
