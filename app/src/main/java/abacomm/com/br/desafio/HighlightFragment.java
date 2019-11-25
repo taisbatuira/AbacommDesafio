@@ -41,9 +41,10 @@ public class HighlightFragment extends Fragment {
         View layout = inflater.inflate(R.layout.fragment_enquete, container, false);
 
         Bundle bundle = getArguments();
+        int numero = bundle.getInt(NUMERO);
 
         TextView campoNumero = layout.findViewById(R.id.fragment_enquete_numero);
-        campoNumero.setText(String.valueOf(bundle.getInt(NUMERO)));
+        campoNumero.setText(String.valueOf(numero));
 
         TextView campoPergunta = layout.findViewById(R.id.fragment_enquete_pergunta);
         campoPergunta.setText(bundle.getString(PERGUNTA));
@@ -51,7 +52,7 @@ public class HighlightFragment extends Fragment {
         ArrayList<String> dados = bundle.getStringArrayList(RESPOSTAS);
 
         respostasRecyclerView = layout.findViewById(R.id.fragment_enquete_respostas);
-        adapter = new RespostasAdapter(getActivity(), dados);
+        adapter = new RespostasAdapter(getActivity(), dados, numero);
         respostasRecyclerView.setAdapter(adapter);
 
         LinearLayoutManager vertical = new LinearLayoutManager(getContext());

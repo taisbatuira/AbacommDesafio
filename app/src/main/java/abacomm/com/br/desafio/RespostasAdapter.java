@@ -14,12 +14,15 @@ public class RespostasAdapter extends RecyclerView.Adapter {
     private Activity activity;
     private ArrayList<String> respostas;
 
+    private int numero;
+
     private RespostasHolder meuHolder;
     private boolean clicavel = true;
 
-    public RespostasAdapter(Activity activity, ArrayList<String> respostas) {
+    public RespostasAdapter(Activity activity, ArrayList<String> respostas, int numero) {
         this.activity = activity;
         this.respostas = respostas;
+        this.numero = numero;
     }
 
     @NonNull
@@ -45,6 +48,8 @@ public class RespostasAdapter extends RecyclerView.Adapter {
         return respostas.size();
     }
 
+    public int getNumero() { return numero; }
+
     public boolean ehClicavel() {
         return clicavel;
     }
@@ -52,4 +57,5 @@ public class RespostasAdapter extends RecyclerView.Adapter {
     public void setClicavel(boolean clicavel) {
         this.clicavel = clicavel;
     }
+
 }

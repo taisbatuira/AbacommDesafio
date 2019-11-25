@@ -5,11 +5,17 @@ import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
+import java.util.ArrayList;
 import java.util.Objects;
 
 import abacomm.com.br.desafio.EnqueteViewPager;
+import abacomm.com.br.desafio.EventoPerguntaRespondida;
 import abacomm.com.br.desafio.R;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
@@ -17,6 +23,7 @@ import androidx.viewpager.widget.ViewPager;
 public class EnqueteActivity extends AppCompatActivity {
 
     public static final String NOME_DA_CIDADE = "cidade";
+    private static ArrayList<Integer> respostas = new ArrayList<>();
 
     private int paginaAtual = 0;
     private String cidade;
@@ -69,6 +76,18 @@ public class EnqueteActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Override
     public boolean onSupportNavigateUp() {
         finish();
         overridePendingTransition(0, 0);
@@ -79,6 +98,29 @@ public class EnqueteActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(0, 0);
+    }
+
+    @Subscribe
+    public void perguntaRespondida(EventoPerguntaRespondida evento) {
+        System.out.println(respostas.size());
+        respostas.add(evento.numero);
+        System.out.println(respostas.size());
+
+        if (respostas.size() == 3) {
+            mostraAlert();
+        }
+    }
+
+    private void mostraAlert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Fim da Pesquisa!");
+        builder.setMessage("Muito obrigada pelas suas respostas!!");
+        builder.setPositiveButton("Finalizar enquete", (dialog, id) -> {
+            respostas.clear();
+            finish();
+        });
+        builder.create();
+        builder.show();
     }
 
 }
