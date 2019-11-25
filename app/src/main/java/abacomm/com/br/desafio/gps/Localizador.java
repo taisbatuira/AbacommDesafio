@@ -1,4 +1,4 @@
-package abacomm.com.br.desafio;
+package abacomm.com.br.desafio.gps;
 
 import android.content.Context;
 import android.location.Address;

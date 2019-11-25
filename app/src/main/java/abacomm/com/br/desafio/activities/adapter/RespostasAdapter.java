@@ -1,4 +1,4 @@
-package abacomm.com.br.desafio;
+package abacomm.com.br.desafio.activities.adapter;
 
 import android.app.Activity;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import abacomm.com.br.desafio.R;
+import abacomm.com.br.desafio.activities.holder.RespostasHolder;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -46,7 +48,6 @@ public class RespostasAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         return respostas.size();
     }
-
 
     public int getNumero() { return numero; }
 

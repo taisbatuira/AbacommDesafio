@@ -1,8 +1,12 @@
-package abacomm.com.br.desafio;
+package abacomm.com.br.desafio.activities.holder;
 
 import android.view.View;
 import android.widget.TextView;
 import org.greenrobot.eventbus.EventBus;
+
+import abacomm.com.br.desafio.Evento.EventoPerguntaRespondida;
+import abacomm.com.br.desafio.R;
+import abacomm.com.br.desafio.activities.adapter.RespostasAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RespostasHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

@@ -1,4 +1,4 @@
-package abacomm.com.br.desafio;
+package abacomm.com.br.desafio.Evento;
 
 public class EventoPerguntaRespondida {
 

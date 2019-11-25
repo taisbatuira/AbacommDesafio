@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class DadosFragment {
+public class DadosFormatados {
 
     private final AppCompatActivity activity;
 
-    public DadosFragment(AppCompatActivity activity) {
+    public DadosFormatados(AppCompatActivity activity) {
         this.activity = activity;
     }
 

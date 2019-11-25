@@ -7,7 +7,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import abacomm.com.br.desafio.GerenciadorDePermissao;
-import abacomm.com.br.desafio.Localizador;
+import abacomm.com.br.desafio.gps.Localizador;
 import abacomm.com.br.desafio.R;
 import abacomm.com.br.desafio.ValidaLoginESenha;
 import androidx.annotation.NonNull;

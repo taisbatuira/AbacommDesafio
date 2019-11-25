@@ -11,8 +11,8 @@ import org.greenrobot.eventbus.Subscribe;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import abacomm.com.br.desafio.EnqueteViewPager;
-import abacomm.com.br.desafio.EventoPerguntaRespondida;
+import abacomm.com.br.desafio.activities.fragment.EnqueteViewPager;
+import abacomm.com.br.desafio.Evento.EventoPerguntaRespondida;
 import abacomm.com.br.desafio.R;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
@@ -120,5 +120,4 @@ public class EnqueteActivity extends AppCompatActivity {
         builder.create();
         builder.show();
     }
-
 }
