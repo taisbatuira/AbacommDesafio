@@ -2,9 +2,7 @@ package abacomm.com.br.desafio;
 
 import android.view.View;
 import android.widget.TextView;
-
 import org.greenrobot.eventbus.EventBus;
-
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RespostasHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -28,7 +26,6 @@ public class RespostasHolder extends RecyclerView.ViewHolder implements View.OnC
         if (adapter.ehClicavel() == true) {
             customItem(itemView, campo_resposta);
             adapter.setClicavel(false);
-            System.out.println(adapter.getNumero());
             EventBus.getDefault().post(new EventoPerguntaRespondida(adapter.getNumero()));
         }
     }

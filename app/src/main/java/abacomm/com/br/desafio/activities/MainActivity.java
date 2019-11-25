@@ -9,7 +9,9 @@ import android.widget.Toast;
 import abacomm.com.br.desafio.GerenciadorDePermissao;
 import abacomm.com.br.desafio.Localizador;
 import abacomm.com.br.desafio.R;
+import abacomm.com.br.desafio.ValidaLoginESenha;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 
@@ -45,29 +47,41 @@ public class MainActivity extends AppCompatActivity {
         });
 
         habilitaBotaoLogin();
-
     }
 
     private void habilitaBotaoLogin() {
-        gerenciador = new GerenciadorDePermissao(this);
 
         botaoLogin.setOnClickListener(view -> {
-            if (gerenciador.temPermissao()) {
-                new Localizador(this).configuraServico();
+            usuario = campoUsuario.getText().toString();
+            senha = campoSenha.getText().toString();
+
+            boolean loginValido = new ValidaLoginESenha(usuario, senha).temPermissao();
+
+            if (loginValido) {
+                localizaOuSolicitaPermissaoDeGps();
             } else {
-                gerenciador.solicitaPermissao();
+                mostraAlert();
             }
         });
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        boolean temPermissao = gerenciador.estaAutorizado(requestCode, grantResults);
+        boolean temPermissaoDeGps = gerenciador.estaAutorizado(requestCode, grantResults);
 
-        if (temPermissao) {
+        if (temPermissaoDeGps) {
             new Localizador(this).configuraServico();
         } else {
-            mostraToast("Permissão de GPS necessária.");
+            mostraToast("Permissão de GPS é necessária.");
+        }
+    }
+
+    private void localizaOuSolicitaPermissaoDeGps() {
+        gerenciador = new GerenciadorDePermissao(this);
+        if (gerenciador.temPermissao()) {
+            new Localizador(this).configuraServico();
+        } else {
+            gerenciador.solicitaPermissao();
         }
     }
 
@@ -79,5 +93,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void mostraToast(String mensagem) {
         Toast.makeText(MainActivity.this, mensagem, Toast.LENGTH_SHORT).show();
+    }
+
+    private void mostraAlert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Login ou Senha inválido!");
+        builder.setMessage("Tente novamente!!");
+        builder.setPositiveButton("Ok", (dialog, id) -> { });
+        builder.create();
+        builder.show();
     }
 }

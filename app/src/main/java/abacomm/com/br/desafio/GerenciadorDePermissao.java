@@ -6,9 +6,6 @@ import android.content.pm.PackageManager;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-;
-
-
 public class GerenciadorDePermissao {
 
     final private int REQUEST_CODE_ASK_PERMISSIONS = 123;

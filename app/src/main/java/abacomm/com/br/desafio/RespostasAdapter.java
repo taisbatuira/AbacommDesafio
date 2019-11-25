@@ -12,11 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 public class RespostasAdapter extends RecyclerView.Adapter {
 
     private Activity activity;
-    private ArrayList<String> respostas;
-
-    private int numero;
-
     private RespostasHolder meuHolder;
+
+    private ArrayList<String> respostas;
+    private int numero;
     private boolean clicavel = true;
 
     public RespostasAdapter(Activity activity, ArrayList<String> respostas, int numero) {
@@ -47,6 +46,7 @@ public class RespostasAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         return respostas.size();
     }
+
 
     public int getNumero() { return numero; }
 
