@@ -46,6 +46,7 @@ public class EnqueteActivity extends AppCompatActivity {
     private void getPagerRespostas() {
         pager = findViewById(R.id.welcome_container);
         EnqueteViewPager adapter = new EnqueteViewPager(this, cidade);
+        pager.setOffscreenPageLimit(adapter.getCount());
         pager.setAdapter(adapter);
 
         TabLayout tabLayout = findViewById(R.id.welcome_dots);

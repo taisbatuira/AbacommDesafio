@@ -23,9 +23,9 @@ public class EnqueteViewPager extends FragmentStatePagerAdapter {
             this.cidade = cidade;
             this.dados = new DadosFragment(activity);
 
-            populaPager("pergunta1", new String[]{"1_1", "1_2", "1_3"});
-            populaPager("pergunta2", new String[]{"2_1", "2_2", "2_3"});
-            populaPager("pergunta3", new String[]{"3_1", "3_2", "3_3"});
+            populaPager(1, "pergunta1", new String[]{"1_1", "1_2", "1_3"});
+            populaPager(2, "pergunta2", new String[]{"2_1", "2_2", "2_3"});
+            populaPager(3, "pergunta3", new String[]{"3_1", "3_2", "3_3"});
         }
 
         @NonNull
@@ -44,9 +44,10 @@ public class EnqueteViewPager extends FragmentStatePagerAdapter {
             return fragments.size();
         }
 
-        private void populaPager(String pergunta, String[] lista) {
+        private void populaPager(int numero, String pergunta, String[] lista) {
             this.fragments.add(
-                    HighlightFragment.comPerguntaERespostas(dados.pergunta(pergunta, cidade),
+                    HighlightFragment.comPerguntaERespostas(numero,
+                                                            dados.pergunta(pergunta, cidade),
                                                             dados.respostas(lista)));
         }
 

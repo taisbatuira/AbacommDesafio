@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class HighlightFragment extends Fragment {
 
+    private static final String NUMERO = "NUMERO";
     private static final String PERGUNTA = "PERGUNTA";
     private static final String RESPOSTAS = "RESPOSTAS";
     private static HighlightFragment fragment;
@@ -23,8 +24,9 @@ public class HighlightFragment extends Fragment {
     RecyclerView respostasRecyclerView;
     public RespostasAdapter adapter;
 
-    public static HighlightFragment comPerguntaERespostas(String pergunta, ArrayList<String> respostas) {
+    public static HighlightFragment comPerguntaERespostas(int numero, String pergunta, ArrayList<String> respostas) {
         Bundle bundle = new Bundle();
+        bundle.putInt(NUMERO, numero);
         bundle.putString(PERGUNTA, pergunta);
         bundle.putStringArrayList(RESPOSTAS, respostas);
         fragment = new HighlightFragment();
@@ -39,6 +41,9 @@ public class HighlightFragment extends Fragment {
         View layout = inflater.inflate(R.layout.fragment_enquete, container, false);
 
         Bundle bundle = getArguments();
+
+        TextView campoNumero = layout.findViewById(R.id.fragment_enquete_numero);
+        campoNumero.setText(String.valueOf(bundle.getInt(NUMERO)));
 
         TextView campoPergunta = layout.findViewById(R.id.fragment_enquete_pergunta);
         campoPergunta.setText(bundle.getString(PERGUNTA));

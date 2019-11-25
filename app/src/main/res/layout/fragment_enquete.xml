@@ -6,25 +6,44 @@
     android:orientation="vertical"
     android:weightSum="0.8">
 
-    <TextView
-        android:id="@+id/fragment_enquete_pergunta"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_weight="0.3"
-        android:gravity="center_horizontal|center_vertical"
-        android:textColor="@color/white"
-        android:textSize="17sp"
-        android:fontFamily="sans-serif-medium"/>
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/fragment_enquete_numero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_numero"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            android:layout_marginBottom="30dp"/>
+
+        <TextView
+            android:id="@+id/fragment_enquete_pergunta"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fragment_enquete_respostas"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:textAlignment="center"
-        android:backgroundTint="@color/white"
         android:layout_marginBottom="30dp"
-        android:clickable="true">
+        android:layout_weight="0.5"
+        android:backgroundTint="@color/white"
+        android:clickable="true"
+        android:textAlignment="center">
+
     </androidx.recyclerview.widget.RecyclerView>
 
 </LinearLayout>
