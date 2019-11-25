@@ -102,11 +102,9 @@ public class EnqueteActivity extends AppCompatActivity {
 
     @Subscribe
     public void perguntaRespondida(EventoPerguntaRespondida evento) {
-        System.out.println(respostas.size());
         respostas.add(evento.numero);
-        System.out.println(respostas.size());
 
-        if (respostas.size() == 3) {
+        if (respostas.size() == 4) {
             mostraAlert();
         }
     }

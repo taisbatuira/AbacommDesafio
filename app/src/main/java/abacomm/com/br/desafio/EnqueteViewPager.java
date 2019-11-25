@@ -26,6 +26,7 @@ public class EnqueteViewPager extends FragmentStatePagerAdapter {
             populaPager(1, "pergunta1", new String[]{"1_1", "1_2", "1_3"});
             populaPager(2, "pergunta2", new String[]{"2_1", "2_2", "2_3"});
             populaPager(3, "pergunta3", new String[]{"3_1", "3_2", "3_3"});
+            populaPager(4, "pergunta4", new String[]{"4_1", "4_2", "4_3"});
         }
 
         @NonNull
